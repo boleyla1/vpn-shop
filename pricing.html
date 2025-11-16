@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قیمت‌ها - SecureVPN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Vazirmatn', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
+        }
+        .price-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+    
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 glass-effect">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center glow-effect">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-bold">SecureVPN</span>
+                </div>
+                
+                <ul class="hidden md:flex gap-8 items-center">
+                    <li><a href="index.html" class="hover:text-blue-400 transition">خانه</a></li>
+                    <li><a href="features.html" class="hover:text-blue-400 transition">ویژگی‌ها</a></li>
+                    <li><a href="#" class="text-blue-400 font-semibold">قیمت‌ها</a></li>
+                    <li><a href="about.html" class="hover:text-blue-400 transition">درباره ما</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-400 transition">تماس</a></li>
+                </ul>
+                
+                <div class="flex gap-3">
+                    <a href="login.html" class="px-4 py-2 hover:bg-white/10 rounded-lg transition">ورود</a>
+                    <a href="login.html" class="px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-green-500/50 transition">شروع رایگان</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 px-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                پلن <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">مناسب</span> خودتان را انتخاب کنید
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                تمام پلن‌ها شامل 30 روز گارانتی بازگشت وجه، پهنای باند نامحدود و پشتیبانی 24/7
+            </p>
+            
+            <!-- Toggle Monthly/Yearly -->
+            <div class="flex items-center justify-center gap-4 mb-4">
+                <span class="text-gray-300">ماهانه</span>
+                <button class="relative inline-flex h-8 w-14 items-center rounded-full bg-blue-600" id="toggle">
+                    <span class="translate-x-7 inline-block h-6 w-6 transform rounded-full bg-white transition"></span>
+                </button>
+                <span class="font-semibold">سالانه <span class="text-green-400">(40% تخفیف)</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Basic Plan -->
+                <div class="glass-effect rounded-2xl p-8 hover-lift price-card">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl mx-auto mb-4 flex items-center justify-center glow-effect">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2">پایه</h3>
+                        <p class="text-gray-400">برای استفاده شخصی</p>
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <div class="flex items-end justify-center gap-2 mb-2">
+                            <span class="text-5xl font-bold" id="basic-price">$4.99</span>
+                            <span class="text-gray-400 pb-2">/ماه</span>
+                        </div>
+                        <p class="text-sm text-green-400" id="basic-save">صرفه‌جویی $23.88/سال</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">5 دستگاه همزمان</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">50+ کشور</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">پهنای باند نامحدود</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">پشتیبانی 24/7</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">Kill Switch</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-gray-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            <span class="text-gray-500">IP اختصاصی</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-gray-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            <span class="text-gray-500">Ad-Blocker</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-4 glass-effect rounded-xl font-bold text-lg hover:bg-white/20 transition">
+                        انتخاب پلن
+                    </button>
+                </div>
+                
+                <!-- Professional Plan (Popular) -->
+                <div class="glass-effect rounded-2xl p-8 hover-lift price-card border-2 border-green-500 relative scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-2 rounded-full text-sm font-bold glow-effect">
+                        محبوب‌ترین ⭐
+                    </div>
+                    
+                    <div class="text-center mb-8 mt-4">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl mx-auto mb-4 flex items-center justify-center glow-effect">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2">حرفه‌ای</h3>
+                        <p class="text-gray-400">برای استفاده خانوادگی</p>
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <div class="flex items-end justify-center gap-2 mb-2">
+                            <span class="text-5xl font-bold" id="pro-price">$9.99</span>
+                            <span class="text-gray-400 pb-2">/ماه</span>
+                        </div>
+                        <p class="text-sm text-green-400" id="pro-save">صرفه‌جویی $47.88/سال</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">10 دستگاه همزمان</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">150+ کشور</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">پهنای باند نامحدود</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">پشتیبانی اولویت‌دار</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">Kill Switch</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">IP اختصاصی</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">Ad-Blocker</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition">
+                        انتخاب پلن
+                    </button>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="glass-effect rounded-2xl p-8 hover-lift price-card">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl mx-auto mb-4 flex items-center justify-center glow-effect">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2">سازمانی</h3>
+                        <p class="text-gray-400">برای کسب‌وکارها</p>
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <div class="flex items-end justify-center gap-2 mb-2">
+                            <span class="text-5xl font-bold" id="ent-price">$19.99</span>
+                            <span class="text-gray-400 pb-2">/ماه</span>
+                        </div>
+                        <p class="text-sm text-green-400" id="ent-save">صرفه‌جویی $95.88/سال</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">نامحدود دستگاه</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">تمام کشورها</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">پهنای باند نامحدود</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">مدیر اختصاصی</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">Kill Switch</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">IP اختصاصی چندگانه</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-300">امکانات سفارشی</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full py-4 glass-effect rounded-xl font-bold text-lg hover:bg-white/20 transition">
+                        انتخاب پلن
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-bold text-center mb-12">مقایسه کامل پلن‌ها</h2>
+            
+            <div class="glass-effect rounded-2xl overflow-hidden">
+                <table class="w-full">
+                    <thead class="bg-white/5">
+                        <tr>
+                            <th class="text-right p-6 font-bold">ویژگی</th>
+                            <th class="text-center p-6 font-bold">پایه</th>
+                            <th class="text-center p-6 font-bold">حرفه‌ای</th>
+                            <th class="text-center p-6 font-bold">سازمانی</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6">تعداد دستگاه</td>
+                            <td class="p-6 text-center">5</td>
+                            <td class="p-6 text-center">10</td>
+                            <td class="p-6 text-center">نامحدود</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6">تعداد کشور</td>
+                            <td class="p-6 text-center">50+</td>
+                            <td class="p-6 text-center">150+</td>
+                            <td class="p-6 text-center">همه</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6">سرعت</td>
+                            <td class="p-6 text-center">بالا</td>
+                            <td class="p-6 text-center">خیلی بالا</td>
+                            <td class="p-6 text-center">حداکثر</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6">پشتیبانی</td>
+                            <td class="p-6 text-center">24/7</td>
+                            <td class="p-6 text-center">اولویت‌دار</td>
+                            <td class="p-6 text-center">اختصاصی</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6">IP اختصاصی</td>
+                            <td class="p-6 text-center">❌</td>
+                            <td class="p-6 text-center">✅</td>
+                            <td class="p-6 text-center">✅ چندگانه</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6">Ad-Blocker</td>
+                            <td class="p-6 text-center">❌</td>
+                            <td class="p-6 text-center">✅</td>
+                            <td class="p-6 text-center">✅</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 px-6 bg-black/20">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl font-bold text-center mb-12">سوالات متداول</h2>
+            
+            <div class="space-y-4">
+                <details class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-white/5">
+                    <summary class="font-bold text-lg">آیا می‌توانم پلن خود را تغییر دهم؟</summary>
+                    <p class="mt-4 text-gray-300">بله، شما می‌توانید در هر زمان پلن خود را ارتقا یا تنزل دهید.</p>
+                </details>
+                
+                <details class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-white/5">
+                    <summary class="font-bold text-lg">آیا گارانتی بازگشت وجه دارید؟</summary>
+                    <p class="mt-4 text-gray-300">بله، 30 روز گارانتی بازگشت کامل وجه داریم.</p>
+                </details>
+                
+                <details class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-white/5">
+                    <summary class="font-bold text-lg">روش‌های پرداخت چیست؟</summary>
+                    <p class="mt-4 text-gray-300">ما تمام کارت‌های بین‌المللی، رمزارزها و درگاه‌های پرداخت محلی را قبول می‌کنیم.</p>
+                </details>
+                
+                <details class="glass-effect rounded-xl p-6 cursor-pointer hover:bg-white/5">
+                    <summary class="font-bold text-lg">آیا محدودیت ترافیک دارید؟</summary>
+                    <p class="mt-4 text-gray-300">خیر، تمام پلن‌ها پهنای باند نامحدود دارند.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 py-12 px-6 border-t border-white/10">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">SecureVPN</span>
+                    </div>
+                    <p class="text-gray-400">اینترنت آزاد و امن برای همه</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">محصولات</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="features.html" class="hover:text-white transition">ویژگی‌ها</a></li>
+                        <li><a href="#" class="hover:text-white transition">قیمت‌ها</a></li>
+                        <li><a href="#" class="hover:text-white transition">دانلود</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">شرکت</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition">درباره ما</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">تماس با ما</a></li>
+                        <li><a href="#" class="hover:text-white transition">وبلاگ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">پشتیبانی</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">مرکز راهنمایی</a></li>
+                        <li><a href="#" class="hover:text-white transition">سوالات متداول</a></li>
+                        <li><a href="dashboard.html" class="hover:text-white transition">پنل کاربری</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SecureVPN. تمامی حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle for Monthly/Yearly pricing
+        const toggle = document.getElementById('toggle');
+        let isYearly = true;
+        
+        toggle.addEventListener('click', function() {
+            isYearly = !isYearly;
+            const span = this.querySelector('span');
+            
+            if (isYearly) {
+                span.classList.add('translate-x-7');
+                span.classList.remove('translate-x-1');
+                document.getElementById('basic-price').textContent = '$2.99';
+                document.getElementById('pro-price').textContent = '$5.99';
+                document.getElementById('ent-price').textContent = '$11.99';
+                document.getElementById('basic-save').textContent = 'صرفه‌جویی $23.88/سال';
+                document.getElementById('pro-save').textContent = 'صرفه‌جویی $47.88/سال';
+                document.getElementById('ent-save').textContent = 'صرفه‌جویی $95.88/سال';
+            } else {
+                span.classList.remove('translate-x-7');
+                span.classList.add('translate-x-1');
+                document.getElementById('basic-price').textContent = '$4.99';
+                document.getElementById('pro-price').textContent = '$9.99';
+                document.getElementById('ent-price').textContent = '$19.99';
+                document.getElementById('basic-save').textContent = '';
+                document.getElementById('pro-save').textContent = '';
+                document.getElementById('ent-save').textContent = '';
+            }
+        });
+    </script>
+
+</body>
+</html>
