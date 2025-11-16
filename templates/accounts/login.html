@@ -1,0 +1,446 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود / ثبت‌نام - SecureVPN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Vazirmatn', sans-serif; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
+        }
+        .tab-active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white min-h-screen flex items-center justify-center p-6">
+
+    <div class="w-full max-w-md">
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mx-auto mb-4 flex items-center justify-center glow-effect">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold">SecureVPN</h1>
+            <p class="text-gray-300 mt-2">اینترنت آزاد و امن</p>
+        </div>
+
+        <!-- Alert Box -->
+        <div id="alertBox" class="mb-4 hidden"></div>
+
+        <!-- بخش اصلی: ورود/ثبت‌نام -->
+        <div id="authSection">
+            <!-- Tabs -->
+            <div class="glass-effect rounded-t-2xl p-2 flex gap-2">
+                <button onclick="showLogin()" id="loginTab" class="flex-1 py-3 rounded-lg font-semibold transition tab-active">
+                    ورود
+                </button>
+                <button onclick="showRegister()" id="registerTab" class="flex-1 py-3 rounded-lg font-semibold transition hover:bg-white/10">
+                    ثبت‌نام
+                </button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="glass-effect rounded-b-2xl p-8">
+                <h2 class="text-2xl font-bold mb-6">خوش آمدید!</h2>
+
+                <form id="loginFormSubmit">
+                    {% csrf_token %}
+
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">شماره موبایل</label>
+                            <div class="flex gap-2">
+                                <input type="text" value="+98" readonly class="w-16 bg-white/10 border border-white/20 rounded-xl px-3 py-3 text-center">
+                                <input type="tel"
+                                       name="phone"
+                                       id="loginPhone"
+                                       maxlength="10"
+                                       class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-400 transition"
+                                       placeholder="9123456789"
+                                       required>
+                            </div>
+                            <p id="loginPhoneError" class="text-red-400 text-sm mt-2 hidden"></p>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition">
+                            ارسال کد تایید
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerForm" class="glass-effect rounded-b-2xl p-8 hidden">
+                <h2 class="text-2xl font-bold mb-6">حساب جدید بسازید</h2>
+
+                <form id="registerFormSubmit">
+                    {% csrf_token %}
+
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">نام</label>
+                            <input type="text"
+                                   name="first_name"
+                                   id="firstName"
+                                   class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-400 transition"
+                                   placeholder="نام خود را وارد کنید"
+                                   required>
+                            <p id="firstNameError" class="text-red-400 text-sm mt-2 hidden"></p>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">نام خانوادگی</label>
+                            <input type="text"
+                                   name="last_name"
+                                   id="lastName"
+                                   class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-400 transition"
+                                   placeholder="نام خانوادگی خود را وارد کنید"
+                                   required>
+                            <p id="lastNameError" class="text-red-400 text-sm mt-2 hidden"></p>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">شماره موبایل</label>
+                            <div class="flex gap-2">
+                                <input type="text" value="+98" readonly class="w-16 bg-white/10 border border-white/20 rounded-xl px-3 py-3 text-center">
+                                <input type="tel"
+                                       name="phone"
+                                       id="registerPhone"
+                                       maxlength="10"
+                                       class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-400 transition"
+                                       placeholder="9123456789"
+                                       required>
+                            </div>
+                            <p id="registerPhoneError" class="text-red-400 text-sm mt-2 hidden"></p>
+                        </div>
+
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox"
+                                   name="terms"
+                                   id="termsCheckbox"
+                                   class="w-4 h-4 rounded border-white/20 mt-1"
+                                   required>
+                            <span class="text-sm text-gray-300">
+                                با <a href="#" class="text-blue-400 hover:text-blue-300">قوانین و مقررات</a> و
+                                <a href="#" class="text-blue-400 hover:text-blue-300">حریم خصوصی</a> موافقم
+                            </span>
+                        </label>
+                        <p id="termsError" class="text-red-400 text-sm hidden"></p>
+
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-blue-500/50 transition">
+                            ارسال کد تایید
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- بخش تایید OTP (مخفی در ابتدا) -->
+        <div id="otpSection" class="hidden">
+            <div class="glass-effect rounded-2xl p-8">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">تایید کد</h2>
+                    <p class="text-gray-300">کد 4 رقمی ارسال شده به <span id="displayPhone" class="font-bold"></span> را وارد کنید</p>
+                </div>
+
+                <form id="otpFormSubmit">
+                    {% csrf_token %}
+
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-3 text-center">کد تایید</label>
+                            <input type="text"
+                                   name="code"
+                                   id="otpCode"
+                                   maxlength="4"
+                                   class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-4 text-center text-3xl tracking-[0.5em] focus:outline-none focus:border-blue-400 transition"
+                                   placeholder="____"
+                                   required
+                                   autofocus>
+                            <p id="otpError" class="text-red-400 text-sm mt-2 text-center hidden"></p>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition">
+                            تایید و ورود
+                        </button>
+
+                        <div class="text-center pt-4 border-t border-white/20">
+                            <p class="text-sm text-gray-400 mb-3">کد را دریافت نکردید؟</p>
+                            <button type="button" onclick="resendOtp()" class="text-blue-400 hover:text-blue-300 transition font-semibold" id="resendBtn">
+                                ارسال مجدد کد
+                            </button>
+                            <p class="text-xs text-gray-500 mt-2" id="timer"></p>
+                        </div>
+
+                        <button type="button" onclick="backToAuth()" class="w-full py-3 bg-white/10 hover:bg-white/20 rounded-xl font-semibold transition">
+                            ویرایش شماره موبایل
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-6">
+            <a href="{% url 'core:index' %}" class="text-gray-400 hover:text-white transition flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                بازگشت به صفحه اصلی
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let currentToken = null;
+        let currentPhone = null;
+        let countdownInterval = null;
+
+        // تابع نمایش Alert
+        function showAlert(message, type = 'error') {
+            const alertBox = document.getElementById('alertBox');
+            const iconSvg = type === 'error'
+                ? '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>'
+                : '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>';
+
+            alertBox.className = `mb-4 p-4 rounded-xl ${type === 'error' ? 'bg-red-500/20 border border-red-500/50' : 'bg-green-500/20 border border-green-500/50'}`;
+            alertBox.innerHTML = `<div class="flex items-center gap-2">${iconSvg}<span>${message}</span></div>`;
+            alertBox.classList.remove('hidden');
+
+            setTimeout(() => alertBox.classList.add('hidden'), 5000);
+        }
+
+        // تعویض بین ورود/ثبت‌نام
+        function showLogin() {
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('registerForm').classList.add('hidden');
+            document.getElementById('loginTab').classList.add('tab-active');
+            document.getElementById('registerTab').classList.remove('tab-active');
+        }
+
+        function showRegister() {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('registerForm').classList.remove('hidden');
+            document.getElementById('loginTab').classList.remove('tab-active');
+            document.getElementById('registerTab').classList.add('tab-active');
+        }
+
+        // نمایش بخش OTP
+        function showOtpSection(phone) {
+            document.getElementById('authSection').classList.add('hidden');
+            document.getElementById('otpSection').classList.remove('hidden');
+            document.getElementById('displayPhone').textContent = phone;
+            document.getElementById('otpCode').focus();
+            startTimer();
+        }
+
+        // بازگشت به فرم‌های اولیه
+        function backToAuth() {
+            document.getElementById('authSection').classList.remove('hidden');
+            document.getElementById('otpSection').classList.add('hidden');
+            document.getElementById('otpCode').value = '';
+            if (countdownInterval) clearInterval(countdownInterval);
+        }
+
+        // تایمر 60 ثانیه برای ارسال مجدد
+        function startTimer() {
+            let timeLeft = 60;
+            const resendBtn = document.getElementById('resendBtn');
+            const timerElement = document.getElementById('timer');
+
+            resendBtn.disabled = true;
+            resendBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = `می‌توانید بعد از ${timeLeft} ثانیه دوباره درخواست دهید`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    resendBtn.disabled = false;
+                    resendBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    timerElement.textContent = '';
+                }
+            }, 1000);
+        }
+
+        // فقط اعداد
+        document.getElementById('loginPhone').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        document.getElementById('registerPhone').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        document.getElementById('otpCode').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        // ارسال فرم ورود
+        document.getElementById('loginFormSubmit').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const phone = document.getElementById('loginPhone').value;
+
+            if (phone.length !== 10) {
+                showAlert('شماره موبایل باید 10 رقم باشد');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('phone', phone);
+            formData.append('form_type', 'login');
+            formData.append('csrfmiddlewaretoken', document.querySelector('[name=csrfmiddlewaretoken]').value);
+
+            try {
+                const response = await fetch('{% url "accounts:send_otp" %}', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    currentToken = data.token;
+                    currentPhone = phone;
+                    showOtpSection(phone);
+                    showAlert('کد تایید ارسال شد', 'success');
+                } else {
+                    showAlert(data.message || 'خطا در ارسال کد');
+                }
+            } catch (error) {
+                showAlert('خطا در برقراری ارتباط با سرور');
+            }
+        });
+
+        // ارسال فرم ثبت‌نام
+        document.getElementById('registerFormSubmit').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const phone = document.getElementById('registerPhone').value;
+            const terms = document.getElementById('termsCheckbox').checked;
+
+            if (!terms) {
+                showAlert('لطفاً قوانین و مقررات را بپذیرید');
+                return;
+            }
+
+            if (phone.length !== 10) {
+                showAlert('شماره موبایل باید 10 رقم باشد');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('first_name', firstName);
+            formData.append('last_name', lastName);
+            formData.append('phone', phone);
+            formData.append('terms', terms);
+            formData.append('form_type', 'register');
+            formData.append('csrfmiddlewaretoken', document.querySelector('[name=csrfmiddlewaretoken]').value);
+
+            try {
+                const response = await fetch('{% url "accounts:send_otp" %}', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    currentToken = data.token;
+                    currentPhone = phone;
+                    showOtpSection(phone);
+                    showAlert('کد تایید ارسال شد', 'success');
+                } else {
+                    showAlert(data.message || 'خطا در ارسال کد');
+                }
+            } catch (error) {
+                showAlert('خطا در برقراری ارتباط با سرور');
+            }
+        });
+
+        // ارسال فرم OTP
+        document.getElementById('otpFormSubmit').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const code = document.getElementById('otpCode').value;
+
+            if (code.length !== 4) {
+                showAlert('کد باید 4 رقم باشد');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('code', code);
+            formData.append('token', currentToken);
+            formData.append('csrfmiddlewaretoken', document.querySelector('[name=csrfmiddlewaretoken]').value);
+
+            try {
+                const response = await fetch('{% url "accounts:verify_otp" %}', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showAlert('ورود موفقیت‌آمیز! در حال انتقال...', 'success');
+                    setTimeout(() => {
+                        window.location.href = data.redirect_url || '{% url "core:index" %}';
+                    }, 1500);
+                } else {
+                    showAlert(data.message || 'کد وارد شده معتبر نیست');
+                }
+            } catch (error) {
+                showAlert('خطا در برقراری ارتباط با سرور');
+            }
+        });
+
+        // ارسال مجدد OTP
+        async function resendOtp() {
+            const formData = new FormData();
+            formData.append('token', currentToken);
+            formData.append('csrfmiddlewaretoken', document.querySelector('[name=csrfmiddlewaretoken]').value);
+
+            try {
+                const response = await fetch('{% url "accounts:resend_otp" %}', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showAlert('کد جدید ارسال شد', 'success');
+                    startTimer();
+                } else {
+                    showAlert(data.message || 'خطا در ارسال مجدد کد');
+                }
+            } catch (error) {
+                showAlert('خطا در برقراری ارتباط با سرور');
+            }
+        }
+    </script>
+
+</body>
+</html>
