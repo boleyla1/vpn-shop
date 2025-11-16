@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureVPN - امنیت و آزادی در اینترنت</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Vazirmatn', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+    
+    <!-- Header/Navigation -->
+    <header class="fixed w-full top-0 z-50 glass-effect">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center glow-effect">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-bold">SecureVPN</span>
+                </div>
+                
+                <ul class="hidden md:flex gap-8 items-center">
+                    <li><a href="#" class="hover:text-blue-400 transition">خانه</a></li>
+                    <li><a href="../../vpn-shop/features.html" class="hover:text-blue-400 transition">ویژگی‌ها</a></li>
+                    <li><a href="../../vpn-shop/pricing.html" class="hover:text-blue-400 transition">قیمت‌ها</a></li>
+                    <li><a href="../../vpn-shop/about.html" class="hover:text-blue-400 transition">درباره ما</a></li>
+                    <li><a href="../../vpn-shop/contact.html" class="hover:text-blue-400 transition">تماس</a></li>
+                </ul>
+                
+                <div class="flex gap-3">
+                    <a href="../../vpn-shop/login.html" class="px-4 py-2 hover:bg-white/10 rounded-lg transition">ورود</a>
+                    <a href="../../vpn-shop/login.html" class="px-6 py-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-green-500/50 transition">شروع رایگان</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                        اینترنت
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+                            آزاد و امن
+                        </span>
+                        برای همه
+                    </h1>
+                    <p class="text-xl text-gray-300 leading-relaxed">
+                        با SecureVPN از سرعت بالا، امنیت کامل و دسترسی نامحدود به تمام محتوای جهان لذت ببرید. بدون محدودیت، بدون نگرانی!
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="../../vpn-shop/pricing.html" class="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition hover-lift glow-effect">
+                            خرید اشتراک
+                        </a>
+                        <a href="#features" class="px-8 py-4 glass-effect rounded-xl font-bold text-lg hover:bg-white/20 transition">
+                            بیشتر بدانید
+                        </a>
+                    </div>
+                    
+                    <div class="flex gap-8 pt-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-400">150+</div>
+                            <div class="text-gray-400">سرور جهانی</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-400">50M+</div>
+                            <div class="text-gray-400">کاربر فعال</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-400">99.9%</div>
+                            <div class="text-gray-400">آپتایم</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative floating">
+                    <div class="relative z-10">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="VPN Shield" class="w-full max-w-md mx-auto drop-shadow-2xl">
+                    </div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Preview -->
+    <section id="features" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">چرا SecureVPN؟</h2>
+                <p class="text-gray-400 text-lg">بهترین ویژگی‌ها برای بهترین تجربه</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect rounded-2xl p-8 hover-lift">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6 glow-effect">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">سرعت فوق‌العاده</h3>
+                    <p class="text-gray-300 leading-relaxed">سرورهای پرسرعت با پهنای باند نامحدود برای استریم و دانلود</p>
+                </div>
+                
+                <div class="glass-effect rounded-2xl p-8 hover-lift">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6 glow-effect">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">امنیت نظامی</h3>
+                    <p class="text-gray-300 leading-relaxed">رمزنگاری AES-256 و سیاست عدم ثبت لاگ</p>
+                </div>
+                
+                <div class="glass-effect rounded-2xl p-8 hover-lift">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6 glow-effect">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">150+ کشور</h3>
+                    <p class="text-gray-300 leading-relaxed">دسترسی به هزاران سرور در سراسر جهان</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="py-20 px-6 bg-black/20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">پلن مناسب خودتان را انتخاب کنید</h2>
+            <p class="text-gray-400 text-lg mb-12">تخفیف ویژه برای خرید سالانه</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="glass-effect rounded-2xl p-8 hover-lift">
+                    <h3 class="text-2xl font-bold mb-4">پایه</h3>
+                    <div class="mb-6">
+                        <span class="text-5xl font-bold">$4.99</span>
+                        <span class="text-gray-400">/ماه</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-right">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>5 دستگاه همزمان</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>50+ کشور</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>پشتیبانی 24/7</span>
+                        </li>
+                    </ul>
+                    <a href="../../vpn-shop/pricing.html" class="block w-full py-3 glass-effect rounded-lg hover:bg-white/20 transition font-semibold">انتخاب پلن</a>
+                </div>
+                
+                <div class="glass-effect rounded-2xl p-8 hover-lift border-2 border-green-500 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-600 px-4 py-1 rounded-full text-sm font-bold">محبوب‌ترین</div>
+                    <h3 class="text-2xl font-bold mb-4">حرفه‌ای</h3>
+                    <div class="mb-6">
+                        <span class="text-5xl font-bold">$9.99</span>
+                        <span class="text-gray-400">/ماه</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-right">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>10 دستگاه همزمان</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>150+ کشور</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>IP اختصاصی</span>
+                        </li>
+                    </ul>
+                    <a href="../../vpn-shop/pricing.html" class="block w-full py-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg hover:shadow-lg hover:shadow-green-500/50 transition font-semibold">انتخاب پلن</a>
+                </div>
+                
+                <div class="glass-effect rounded-2xl p-8 hover-lift">
+                    <h3 class="text-2xl font-bold mb-4">سازمانی</h3>
+                    <div class="mb-6">
+                        <span class="text-5xl font-bold">$19.99</span>
+                        <span class="text-gray-400">/ماه</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-right">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>نامحدود دستگاه</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>تمام کشورها</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>مدیر اختصاصی</span>
+                        </li>
+                    </ul>
+                    <a href="../../vpn-shop/pricing.html" class="block w-full py-3 glass-effect rounded-lg hover:bg-white/20 transition font-semibold">انتخاب پلن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="glass-effect rounded-3xl p-12 text-center max-w-4xl mx-auto glow-effect">
+                <h2 class="text-4xl font-bold mb-6">همین حالا شروع کنید!</h2>
+                <p class="text-xl text-gray-300 mb-8">30 روز گارانتی بازگشت وجه - بدون هیچ ریسکی</p>
+                <a href="../../vpn-shop/pricing.html" class="inline-block px-12 py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition hover-lift">خرید اشتراک</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 py-12 px-6 border-t border-white/10">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">SecureVPN</span>
+                    </div>
+                    <p class="text-gray-400">اینترنت آزاد و امن برای همه</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">محصولات</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="../../vpn-shop/features.html" class="hover:text-white transition">ویژگی‌ها</a></li>
+                        <li><a href="../../vpn-shop/pricing.html" class="hover:text-white transition">قیمت‌ها</a></li>
+                        <li><a href="#" class="hover:text-white transition">دانلود</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">شرکت</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="../../vpn-shop/about.html" class="hover:text-white transition">درباره ما</a></li>
+                        <li><a href="../../vpn-shop/contact.html" class="hover:text-white transition">تماس با ما</a></li>
+                        <li><a href="#" class="hover:text-white transition">وبلاگ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">پشتیبانی</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">مرکز راهنمایی</a></li>
+                        <li><a href="#" class="hover:text-white transition">سوالات متداول</a></li>
+                        <li><a href="../../vpn-shop/dashboard.html" class="hover:text-white transition">پنل کاربری</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SecureVPN. تمامی حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
